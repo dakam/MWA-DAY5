@@ -262,7 +262,7 @@ module.exports.GamesPartialUpdateOne = function (req, res) {
                     response.message = updatedGame;
                 }
 
-                res.status(201).json({"jjjjjjjj":"jj"});
+                res.status(201).json(response.message);
 
 
                 return;
