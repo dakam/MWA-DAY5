@@ -7,7 +7,7 @@ const statuses = {
     systemissue: 500,
     userIssue:400,
     fetchok:200,
-    updateok:204,  
+    updateok:201,  
     resreceived:201,
 }
 
@@ -128,7 +128,7 @@ module.exports.gamesFullUpdateOne = function (req, res) {
     Game.findById(gameId).exec(function (err, game) {
 
         const response = {
-            status: 204,
+            status: 201,
             message: game
         };
 
@@ -165,7 +165,7 @@ module.exports.gamesFullUpdateOne = function (req, res) {
                 console.log("updated Game is ", updatedGame);
 
                 let response2 = {
-                    status: 204,
+                    status: 201,
                     message: game
                 };
 
@@ -176,7 +176,7 @@ module.exports.gamesFullUpdateOne = function (req, res) {
                 } else {
                     response.message = updatedGame;
                     console.log(" success on game Full update", updatedGame)
-                    res.status(204).json({"message": updatedGame});
+                    res.status(201).json({"message": updatedGame});
                 }
                
             })
@@ -198,7 +198,7 @@ module.exports.GamesPartialUpdateOne = function (req, res) {
 
     Game.findById(gameId).exec(function (err, game) {
         const response = {
-            status: 204,
+            status: 201,
             message: game
         };
 
@@ -213,7 +213,7 @@ module.exports.GamesPartialUpdateOne = function (req, res) {
             response.message = { "message": "Game ID not found" };
         }
 
-        if (response.status !== 204) {
+        if (response.status !== 201) {
             res.status(response.status).json(response.message);
         } else {
 
@@ -290,7 +290,7 @@ module.exports.GamesDeleteOne = function (req, res) {
         Game.findByIdAndRemove(gameId).exec(function(err, deletedGame) {
 
             let response= {
-                status:204,
+                status:201,
                 message:deletedGame
             }
 

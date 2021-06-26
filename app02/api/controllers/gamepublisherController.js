@@ -191,7 +191,7 @@ module.exports.publisherDeleteOne= function(req, res) {
 
 
           const response= {
-                status:204,
+                status:201,
                 message:game,
             }
 
@@ -206,7 +206,7 @@ module.exports.publisherDeleteOne= function(req, res) {
                 response.status = 500;
 
             }
-            if(response.status !=204) {
+            if(response.status !=201) {
                 console.log("Game is not valid", response.message)
                 res.status(response.status).json(response.message);
 
